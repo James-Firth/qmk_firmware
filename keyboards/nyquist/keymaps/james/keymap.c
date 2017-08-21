@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   QWERTY,  _______,   RGB_HUD, RGB_SAD, RGB_VAD, _______, _______, _______,  _______, _______, _______, _______, \
   _______, _______,   _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, \
   _______, _______,   _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______ \
-)
+),
 
 /* Lower (Math & Music): F-keys, Media keys, and numpad.
  * ,-----------------------------------------+  +-----------------------------------------.
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = KEYMAP( \
   _______, KC_PSCR, KC_MSTP, KC_MPLY,  KC_MNXT, KC_MUTE, KC_NLCK, KC_P7,   KC_P8,   KC_P9,  KC_PMNS, KC_BSPC, \
-  LCTL(LSFT(KC_T)), LCTL(KC_W), LCTL(LSFT(KC_TAB)), LCTL(KC_T),  LCTL(KC_TA)B, KC_VOLU, KC_PERC, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_DEL, \
+  LCTL(LSFT(KC_T)), LCTL(KC_W), LCTL(LSFT(KC_TAB)), LCTL(KC_T),  LCTL(KC_TAB), KC_VOLU, KC_PERC, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_DEL, \
   KC_DEL,  _______, _______, _______,  _______, KC_VOLD, KC_PSLS, KC_P1,   KC_P2,   KC_P3,   KC_PEQL, KC_PERC, \
   _______, _______, _______, _______,  _______, _______, KC_PAST, KC_P0,   KC_P0,   KC_PDOT,  KC_PENT, _______, \
   _______, _______, _______, _______,  _______, _______, _______,  _______, _______, _______,  _______, KC_RCTRL \
