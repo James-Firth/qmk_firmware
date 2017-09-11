@@ -11,9 +11,9 @@ extern keymap_config_t keymap_config;
 #define _QWERTY 0
 #define _COLEMAK 1
 #define _UPKEEP 2
-#define _LOWER 3
-#define _RAISE 4
-#define _GAME 5
+#define _GAME 3
+#define _LOWER 4
+#define _RAISE 5
 #define _ADJUST 16
 
 enum custom_keycodes {
@@ -71,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL, \
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
-  KC_LCTL, LOWER, KC_LALT, KC_LALT, KC_SPC,  KC_SPC,  KC_SPC,  RAISE,  KC_LEFT,  MT(MOD_RALT, KC_DOWN), MT(MOD_RSFT, KC_UP), MT(MOD_RCTL, KC_RGHT) \
+  KC_LCTL, LOWER, KC_LALT, KC_LALT, KC_SPC,  KC_SPC,  KC_SPC,  RAISE,  KC_LGUI,  MT(MOD_RALT, KC_DOWN), MT(MOD_RSFT, KC_UP), MT(MOD_RCTL, KC_RGHT) \
 ),
 
 /* Colemak
