@@ -13,6 +13,7 @@ extern keymap_config_t keymap_config;
 #define _UPKEEP 2
 #define _LOWER 3
 #define _RAISE 4
+#define _GAME 5
 #define _ADJUST 16
 
 enum custom_keycodes {
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   CTL_T(KC_HOME),   KC_PGDN,  ALT_T(KC_PGUP), GUI_T(KC_END), LOWER,   KC_SPC,  KC_SPC,  RAISE,  KC_LEFT,  MT(MOD_RALT, KC_DOWN), MT(MOD_RSFT, KC_UP), MT(MOD_RCTL, KC_RGHT) \
 ),
 
-/* Gaming TODO WIP
+/* Gaming TODO update comments
  * ,-----------------------------------------+   +-----------------------------------------.
  * |   `  |   1  |   2  |   3  |   4  |   5  |   |   6  |   7  |   8  |   9  |   0  | Bksp |
  * |------+------+------+------+------+------+   +------+------+------+------+------+------|
@@ -68,9 +69,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAME] = KEYMAP( \
   KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL, \
-  KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, MT(MOD_MEH, KC_QUOT), \
+  KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT , \
-  KC_LCTL, LOWER, _______, KC_LALT, KC_SPC,  KC_SPC,  KC_SPC,  RAISE,  KC_LEFT,  MT(MOD_RALT, KC_DOWN), MT(MOD_RSFT, KC_UP), MT(MOD_RCTL, KC_RGHT) \
+  KC_LCTL, LOWER, KC_LALT, KC_LALT, KC_SPC,  KC_SPC,  KC_SPC,  RAISE,  KC_LEFT,  MT(MOD_RALT, KC_DOWN), MT(MOD_RSFT, KC_UP), MT(MOD_RCTL, KC_RGHT) \
 ),
 
 /* Colemak
@@ -108,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------+   +----------------------------------------'
  */
 [_UPKEEP] =  KEYMAP( \
-  RESET,   RGB_TOG,   _______, QWERTY,  COLEMAK, _______, _______, _______,  _______, _______, _______, _______, \
+  RESET,   RGB_TOG,   _______, QWERTY,  COLEMAK, GAME, _______, _______,  _______, _______, _______, _______, \
   _______, RGB_MOD,   RGB_HUI, RGB_SAI, RGB_VAI, _______, _______, _______,  _______, _______, _______, _______, \
   QWERTY,  _______,   RGB_HUD, RGB_SAD, RGB_VAD, _______, _______, _______,  _______, _______, _______, _______, \
   _______, _______,   _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, \
@@ -185,6 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 float tone_qwerty[][2]     = SONG(QWERTY_SOUND);
 float tone_upkeep[][2]     = SONG(UPKEEP_SOUND);
 float tone_colemak[][2]    = SONG(COLEMAK_SOUND);
+float tone_game[][2]    = SONG(GAME_SOUND);
 #endif
 
 void persistent_default_layer_set(uint16_t default_layer) {
@@ -218,6 +220,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           PLAY_NOTE_ARRAY(tone_upkeep, false, 0);
         #endif
         persistent_default_layer_set(1UL<<_UPKEEP);
+      }
+      return false;
+      break;
+    case GAME:
+      if (record->event.pressed) {
+        #ifdef AUDIO_ENABLE
+          PLAY_NOTE_ARRAY(tone_game, false, 0);
+        #endif
+        persistent_default_layer_set(1UL<<_GAME);
       }
       return false;
       break;
