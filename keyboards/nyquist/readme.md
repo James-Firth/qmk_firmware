@@ -139,7 +139,7 @@ avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:eeprom-lefthand.eep
 ```
 and similarly for right half
 ```
-avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:eeprom-righhand.eep
+avrdude -p atmega32u4 -P $(COM_PORT) -c avr109 -U eeprom:w:eeprom-righthand.eep
 // or the equivalent in dfu-programmer
 ```
 
