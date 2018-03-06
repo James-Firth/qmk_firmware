@@ -129,6 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |  |      |      |      |      |      | RCTRL|
  * `-----------------------------------------+  +-----------------------------------------'
  */
+ // TODO Figure out macro for D key, want it to do ctrl-L then % then space (so it searches open tabs in FF)
 [_LOWER] = KEYMAP( \
   _______, KC_PSCR, KC_MSTP, KC_MPLY,  KC_MNXT, KC_MUTE, KC_NLCK, KC_P7,   KC_P8,   KC_P9,  KC_PMNS, KC_BSPC, \
   LCTL(LSFT(KC_T)), LCTL(KC_W), LCTL(LSFT(KC_TAB)), LCTL(KC_T),  LCTL(KC_TAB), KC_VOLU, KC_PERC, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, KC_DEL, \
@@ -154,9 +155,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = KEYMAP( \
   _______,  _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______, \
-  _______,  _______,  KC_BSLASH,  KC_PIPE,    _______,    _______,    KC_UNDS,    KC_MINS,    KC_PLUS,    KC_EQL,    KC_BSLS,    _______, \
-  _______,  KC_HOME,  KC_PGDN,    KC_PGUP,    KC_END,     KC_LBRC,    KC_RBRC,    KC_LEFT,    KC_DOWN,    KC_UP,     KC_RIGHT,   KC_RCTRL, \
-  _______,  _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______, \
+  _______,  _______,  KC_LBRC,    KC_BSLS,    KC_RBRC,    _______,    KC_UNDS,    KC_MINS,    KC_PLUS,    KC_EQL,    KC_PIPE,   _______, \
+  _______,  KC_HOME,  KC_PGDN,    KC_PGUP,    KC_END,     _______,    KC_LEFT,    KC_DOWN,    KC_UP,      KC_RIGHT,  KC_BSLASH,  KC_RCTRL, \
+  _______,  _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   KC_RSFT, \
   _______,  _______,  _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,   _______,   _______ \
 ),
 
