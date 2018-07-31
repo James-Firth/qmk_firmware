@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+  +------+------+------+------+------+------|
  * |ROTab |X tab | L Tab|NewTab|RTab  | Vol+ |  |   %  |   4  |   5  |  6  |   +  | Del  |
  * |------+------+------+------+------+------+  +------+------+------+------+------+------|
- * | Del  |      |      |      |      | Vol- |  |   /  |   1  |  2   |  3   |   =  |  %   |
+ * |tabsrch| <work| Run  | work>|      | Vol- |  |   /  |   1  |  2   |  3   |   =  |  %   |
  * |------+------+------+------+------+------+  +------+------+------+------+------+------|
  * |      |      |      |      |      |      |  |   *  |   0  |  .   |   .  | Entr | Entr |
  * |------+------+------+------+------+------+  +------+------+------+------+------+------|
@@ -106,20 +106,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     // TODO Figure out macro for D key, want it to do ctrl-L then % then space (so it searches open tabs in FF)
     [_LOWER] = KEYMAP(
-        -_______, KC_PSCR, KC_MSTP, KC_MPLY, KC_MNXT, KC_MUTE, KC_NLCK, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_BSPC,
+        _______, KC_PSCR, KC_MSTP, KC_MPLY, KC_MNXT, KC_MUTE, KC_NLCK, KC_P7, KC_P8, KC_P9, KC_PMNS, KC_BSPC,
         LCTL(LSFT(KC_T)), LCTL(KC_W), LCTL(LSFT(KC_TAB)), LCTL(KC_T), LCTL(KC_TAB), KC_VOLU, KC_PERC, KC_P4, KC_P5, KC_P6, KC_PPLS, KC_DEL,
-        KC_DEL, LCTL(KC_F), LGUI(LSFT(KC_P4)), LGUI(KC_D), LGUI(LSFT(KC_P6)), KC_VOLD, KC_PSLS, KC_P1, KC_P2, KC_P3, KC_PEQL, KC_PERC,
+        _______, LCTL(KC_F), LGUI(LSFT(KC_P4)), LGUI(KC_D), LGUI(LSFT(KC_P6)), KC_VOLD, KC_PSLS, KC_P1, KC_P2, KC_P3, KC_PEQL, KC_PERC,
         _______, _______, _______, _______, _______, _______, KC_PAST, KC_P0, KC_P0, KC_PDOT, KC_PENT, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_RCTRL),
 
     // WIP Ideas. maybe I won't do VIM style
     /* Raise (Navigation and symbols Layer). TODO: Macros for left hand nav
  * ,-----------------------------------------+   +----------------------------------------.
- * |      |      |      |  M3  |      |      |   |     |      |      |      |      |      |
+ * |      |      |      |  M3  |      | MUTE |   |     |      |      |      |      |      |
  * |------+------+------+------+------+------+   +-----+------+------+------+------+------|
- * |      |      |      |  \   |  |   |      |   |  _  |   -  |  +  |   =  |   \  |      |
+ * |      |      |  [   |  \   |  ]   | vol+ |   |  _  |   -  |  +  |   =   |   \  |      |
  * |------+------+------+------+------+------+   +-----+------+------+------+------+------|
- * |      | HOME | PGDN | PGUP | END |  [   |    |  ]  |   ◀  |   ▼  |   ▲  |   ▶  | Alt  |
+ * |      | HOME | PGDN | PGUP | END  | vol- |   |  ]  |   ◀  |   ▼  |   ▲  |   ▶  | Alt  |
  * |------+------+------+------+------+------+   +-----+------+------+------+------+------|
  * |      |      |      |      |      |      |   |     |      |      |      |      |      |
  * |------+------+------+------+------+------+   +-----+------+------+------+------+------|
